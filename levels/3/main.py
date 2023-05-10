@@ -13,9 +13,8 @@ while True:
     client_conn, client_addr = server_socket.accept()
     data = client_conn.recv(1024).decode()
     print(data) 
-    fd = open('index.html')
-    content = fd.read()
-    fd.close()
+    with open('index.html', 'r') as fd:
+        content = fd.read()
     response = "HTTP/1.0 200 OK\n\n" + content
     print(f"Response: {response}")
     client_conn.sendall(response.encode())

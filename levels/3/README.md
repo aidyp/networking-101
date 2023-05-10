@@ -15,3 +15,4 @@ And then
 GET /model
 ```
 should return the `model.html` page
+
